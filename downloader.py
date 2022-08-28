@@ -1,7 +1,6 @@
 import os
 from pytube import YouTube
 from moviepy.editor import *
-
 def downloadVideo(url):
     video = YouTube(url)
     video.streams.get_highest_resolution().download()
@@ -9,11 +8,9 @@ def downloadVideo(url):
 def downloadAudio(url):
     audio = YouTube(url)
     out_file = audio.streams.get_audio_only().download()
-    
     base, ext = os.path.splitext(out_file)
     new_file = base + '.mp3'
     os.rename(out_file, new_file)
-    
     print('download MP3 completed successfully')
 def chooseDownload(opc):
     if ((opc==2)or(opc=='mp4')or(opc=='2')or(opc=='Video')or(opc=='video')or(opc=='v')or(opc=='V')):
@@ -24,7 +21,6 @@ def wannaStop(opc):
     return ((opc=='1')or(opc=='true')or(opc=='True')or('stop')or('s')or('y')or('S')or('Y'))
 def cleanTerminal():
     os.system('cls')
-
 if __name__=="__main__":
     stop = False
     while(stop==False):
@@ -40,6 +36,5 @@ if __name__=="__main__":
         print()
         print('-------------------------------------------')
         chooseDownload(input('download type: '))
-
         stop = wannaStop(input('Wanna Stop?'))
         if stop: cleanTerminal()
