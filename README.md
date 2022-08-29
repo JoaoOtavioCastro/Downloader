@@ -1,7 +1,8 @@
 # Downloader
 A video and music download from youtube
   
-Things to do: 
+Things to do:
+
     Download video                 ok
 
     Download audio                 ok
