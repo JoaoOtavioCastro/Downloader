@@ -10,9 +10,10 @@ def downloadVideo(url):
 def downloadAudio(url):
     audio = YouTube(url)
     out_file = audio.streams.get_audio_only().download()
-    
     base = os.path.splitext(out_file)
-    new_file = base + '.mp3'
+    new_file = base[0] + '.mp3'
+    print(base)
+    print(new_file)
     os.rename(out_file, new_file)
     
     print('download MP3 completed successfully')
